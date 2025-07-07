@@ -14,13 +14,13 @@ class Cafe:
 
     def visit_cafe(self, visitor: dict) -> str:
         if not visitor.get("vaccine"):
-            raise NotVaccinatedError()
+            raise NotVaccinatedError("All friends should be vaccinated")
         if not self.is_valid_vaccine_date(
                 visitor["vaccine"]["expiration_date"]
         ):
-            raise OutdatedVaccineError()
+            raise OutdatedVaccineError("All friends should be vaccinated")
         if visitor["wearing_a_mask"] is False:
-            raise NotWearingMaskError()
+            raise NotWearingMaskError("You should wear a mask")
         return f"Welcome to {self.name}"
 
     @staticmethod
